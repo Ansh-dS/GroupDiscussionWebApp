@@ -6,6 +6,8 @@ import login from "../Images/login.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import React, { useState, useEffect } from "react";
+import { useNavigate , Link} from "react-router-dom";
+
 
 export default function Page() {
   const Text = [
@@ -26,6 +28,7 @@ export default function Page() {
       setText(Text[newCount]);
       setImage(Image[newCount]);
       setAvatar(() => AvatarForLeftDiv);
+
       return newCount;
     });
   }
@@ -36,13 +39,14 @@ export default function Page() {
       setText(Text[newCount]);
       setImage(Image[newCount]);
       setAvatar(() => AvatarForLeftDiv);
+
       return newCount;
     });
   }
 
   useEffect(() => {
-    setAvatar(() => AvatarForLeftDiv)
-  }, [count, image ]);
+    setAvatar(() => AvatarForLeftDiv);
+  }, [count, image]);
   function ChangingLeft() {
     setAvatar(() => AvatarSubstitute);
     setText("Please log in to your account to continue.");
@@ -111,12 +115,11 @@ export default function Page() {
   );
 }
 
-
 function LeftDiv({ avatar: AvatarComponent, text }) {
   return (
     <div>
       <div className="flex flex-col mt-5 p-5 max-w-[20rem] rounded-lg">
-        <AvatarComponent />  
+        <AvatarComponent />
         <div className="mt-7 px-5 flex pb-[4.8rem] justify-center">
           <h3 className="text-blue-500 text-lg py-10 font-lato">{text}</h3>
         </div>
@@ -125,8 +128,7 @@ function LeftDiv({ avatar: AvatarComponent, text }) {
   );
 }
 
-
-function RightDiv({ ChangingLeft }) {
+function RightDiv({ ChangingLeft } ) {
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
@@ -137,9 +139,10 @@ function RightDiv({ ChangingLeft }) {
     "do you already have an account?"
   );
 
+  const navigate = useNavigate();
   function SubmitHandler(event) {
     event.preventDefault();
-    console.log(name, email, password);
+   
   }
 
   useEffect(() => {
@@ -209,13 +212,18 @@ function RightDiv({ ChangingLeft }) {
           >
             <b>{havingAccount}</b>
           </button>
-
+         
           <button
             type="submit"
             className="text-gray-100 flex py-2 px-2 justify-center border-black rounded-full m-10 mr-[1.5rem]"
             style={{ backgroundColor: buttonColor }}
-          >
+          >{(submitButton==="Create Account")?
+            <Link to="/">
             {submitButton}
+            </Link> :
+             <Link to="/Time">
+          {submitButton}
+          </Link>}
           </button>
         </div>
       </form>

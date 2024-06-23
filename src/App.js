@@ -1,11 +1,12 @@
-import Page from './Sign/Page'
+import React from 'react';
+import Page from './Sign/Page';
+import Paths from './Sign/Paths';
+import { BrowserRouter } from 'react-router-dom';
 
 export default function App() {
   return (
-   <div>
-      <Page /> 
-   </div>
+    <BrowserRouter>
+      <Paths />
+    </BrowserRouter>
   );
 }
-
-
