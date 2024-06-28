@@ -1,0 +1,18 @@
+.myCallContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f0f0; /* Custom background color for the container */
+  }
+  
+  /* Custom button styles */
+  .zego-ui-kit__button {
+    background-color: #4CAF50 !important; /* Green background */
+    color: white !important; /* White text */
+    border: none !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    margin: 10px !important;
+    cursor: pointer !important;
+  }
+  
+ 

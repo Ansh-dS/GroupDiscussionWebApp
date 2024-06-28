@@ -1,6 +1,7 @@
 import "./DivColor.css";
 import { useEffect, useState } from "react";
 import * as Separator from "@radix-ui/react-separator";
+import {Link} from 'react-router-dom'
 import groupImage from "../Images/groupImage.png";
 import groupIcon from "../Images/groupIcon.png";
 import phoneIcon from "../Images/phone.png";
@@ -11,10 +12,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Card } from "@radix-ui/themes";
 import * as Avatar from "@radix-ui/react-avatar";
 
-import * as Popover from "@radix-ui/react-popover";
 
-import DatePicker from "react-datepicker";
-import TimePicker from "react-time-picker";
+
 
 // Images...
 import girl1 from "../Images/Girls/girl1.jpg";
@@ -28,6 +27,7 @@ import boy2 from "../Images/Boys/boy2.jpg";
 import boy3 from "../Images/Boys/boy3.jpg";
 import boy4 from "../Images/Boys/boy4.jpg";
 import boy5 from "../Images/Boys/boy5.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function DecidingTime() {
   const [groupName, setGroupName] = useState("");
@@ -324,7 +324,9 @@ function RightComponent({ catchingGroupName }) {
 {
   /*after you added group Name */
 }
+
 function RightComponentSubstitute({ groupName }) {
+
   return (
     <div className="relative z-100 bg-gray-200 w-full md:w-[70rem] max-h-full md:h-[35rem] rounded-sm flex flex-1 flex-col justify-center p-4 md:p-0">
 
@@ -332,15 +334,16 @@ function RightComponentSubstitute({ groupName }) {
         <div className="text-blue-700  text-4xl mt-2 font-bold ml-10">
           {groupName}
         </div>
-
+        <Link to="/Time/Call"> 
         <div className="bg-violet-400 rounded-full  shadow-lg shadow-gray-400 mr-10">
-          <img src={phoneIcon} alt="Can't find image" className="w-14 p-3" />
+          <img src={phoneIcon}  alt="Can't find image" className="w-14 p-3" />
         </div>
+        </Link>
       </div>
 
       {/*second*/}
       <div className=" rounded-lg shadow shadow-md mx-8 bg-gradient-to-r from-purple-500 to-pink-500 flex flex-row py-[12rem] mb-1  justify-center">
-        <span className="text-white font-open text-xl mx-5">Click the button at the top to add members </span>
+        <span className="text-white font-open text-xl mx-5">Click the button at the top left to add members </span>
       </div>
 
    
