@@ -1,4 +1,6 @@
+// filepath: /c:/Users/Ansh/Documents/Projects/GroupDiscussionWebApp/webpack.config.js
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production', // Set the mode to 'production'
@@ -38,6 +40,11 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html', // Path to your index.html file
+    }),
+  ],
   resolve: {
     extensions: ['.js', '.css'], // Resolve these extensions
   },
